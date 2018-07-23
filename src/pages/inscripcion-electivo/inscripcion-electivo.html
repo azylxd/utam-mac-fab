@@ -1,0 +1,31 @@
+<ion-header class="no-border">
+  <ion-navbar color="primary">
+    <ion-title>Electivos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list style="padding-top: 10px">
+
+    <my-card-inscription [inscription]="inscription" elective="true" [current_elective]="electivo_actual" *ngFor="let inscription of datos_electivos"
+      (click)="seleccionar(inscription)">
+    </my-card-inscription>
+
+    <li tappable class="inscripcion-item" (click)="seleccionar()">
+      <div class="inscripcion-item__info">
+        <h3 class="only-title">NINGUNO</h3>
+      </div>
+      <div class="inscripcion-item__icon">
+        <!-- ICONS -->
+        <img *ngIf="!electivo_actual" src="./assets/images/select/checked1.svg">
+        <img *ngIf="electivo_actual" src="./assets/images/select/blank.svg">
+      </div>
+    </li>
+
+  </ion-list>
+
+  <button class="btn-reac" color="_red" round (click)="cerrar()">
+    CERRAR
+  </button>
+</ion-content>

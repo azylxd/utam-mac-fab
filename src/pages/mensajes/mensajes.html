@@ -1,0 +1,86 @@
+<ion-header class="no-border">
+    <ion-navbar color="primary">
+        <button ion-button icon-only menuToggle solid color="amarillo" class="boton-menu">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Mensajes</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="actualizaDatos()">
+                <ion-icon name="md-refresh"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- <div *ngIf="cargando" style="height: 100%;; text-align: center; display: flex; align-items: center;">
+      <div style=" background-color: #ecaf20; height: 80px; width: 80px; margin: auto; border-radius: 50%; display: flex; align-items: center;">
+         <div class="spinner2">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+         </div>
+      </div>
+   </div> -->
+
+    <div class="header-background"></div>
+
+   <!-- PRE REENDERIZADO DEL CARD -->
+    <!-- <div class="pre-container">
+        <div class="header-card pre"></div>
+    </div> -->
+
+    <ion-slides *ngIf="datos_periodos && datos_periodos?.length != 0" pager (ionSlideWillChange)="cambioSlide()">
+        <ion-slide #slider class="slide-periodo" *ngFor="let periodo of datos_periodos; let i=index">
+
+            <!--<div class="header-background"></div>-->
+            <div class="header-card bullets">
+                <h3 class="annio">{{periodo.ANO}}</h3>
+                <h4 class="semestre">SEMESTRE {{periodo.SEMESTRE}}</h4>
+            </div>
+
+            <div *ngIf="datos_mensajes_resumen">
+                <ul class="lista-uta">
+                    <div *ngIf="datos_mensajes_resumen[periodo.PERIODO]['no_leidos'].length != 0" class="lista-uta__separador">No leídos</div>
+
+                    <div *ngIf="datos_asignaturas" class="noleidos">
+                        <li class="item-asignatura" *ngFor="let mensaje of datos_mensajes_resumen[periodo.PERIODO]['no_leidos']; let i=index" (click)="irDetallesNoLeidos(i, mensaje.CUR_CODIGO, mensaje.CORRELATIVOS)">
+                            <div class="info">
+                                <span class="tipo">{{datos_asignaturas[mensaje.CUR_CODIGO].tipo_clase | tipoClase}}</span>
+                                <h3 class="nombre">{{datos_asignaturas[mensaje.CUR_CODIGO].nombre}}</h3>
+                            </div>
+                            <div class="extra padding1">
+                                <span class="fecha">{{mensaje.ULTIMO_MENSAJE | tiempoAtras | capital}}</span>
+                                <span class="notificaciones">{{mensaje.CANTIDAD}}</span>
+                            </div>
+                        </li>
+                    </div>
+
+
+                    <div *ngIf="datos_mensajes_resumen[periodo.PERIODO]['leidos'].length != 0" class="lista-uta__separador">Leídos</div>
+
+                    <div *ngIf="datos_asignaturas">
+                        <li class="item-asignatura" *ngFor="let mensaje of datos_mensajes_resumen[periodo.PERIODO]['leidos']" (click)="irDetalles(mensaje.CUR_CODIGO)">
+                            <div class="info">
+                                <span class="tipo">{{datos_asignaturas[mensaje.CUR_CODIGO].tipo_clase | tipoClase }}</span>
+                                <h3 class="nombre">{{datos_asignaturas[mensaje.CUR_CODIGO].nombre }}</h3>
+                            </div>
+                            <div class="extra padding1">
+                                <span class="fecha">{{mensaje.ULTIMO_MENSAJE | tiempoAtras | capital }}</span>
+                            </div>
+                        </li>
+                    </div>
+
+                </ul>
+            </div>
+        </ion-slide>
+    </ion-slides>
+
+    <!--SI EL OBJETO ASIGNATURAS ES VACIO-->
+    <ion-fab right bottom *ngIf="datos_asignaturas && datos_asignaturas">
+        <button ion-fab color="_red" (click)="nuevoMensaje()">
+            <ion-icon name="md-create"></ion-icon>
+        </button>
+    </ion-fab>
+
+</ion-content>

@@ -1,0 +1,19 @@
+page-inscripcion-electivo {
+    ion-title{
+        text-align: center;
+    }
+
+    .btn-reac {
+        box-sizing: margin-box;
+        width: 100%;
+        background-color: rgba(color($colors, _red), 1);
+        color: #fff;
+        height: 37px;
+        border-radius: 5px; //margin: 0px auto;
+        margin: 30px auto 20px; //TOP: 10PX; RIGHT/LEFT: AUTO; BOTTOM: 20PX;
+        font-size: 1.4rem;
+        display: block;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+}

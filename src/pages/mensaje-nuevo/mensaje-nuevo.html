@@ -1,0 +1,46 @@
+<ion-header class="no-border">
+   <ion-navbar color="primary">
+
+      <ion-title>Redactar</ion-title>
+      <ion-buttons end>
+         <button (click)="enviarMensaje()" [disabled]="!mensajeForm.valid || !cod_asignatura" ion-button icon-only>
+            <ion-icon name="md-send"></ion-icon>
+         </button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <form [formGroup]="mensajeForm" (ngSubmit)="enviarMensaje()">
+      <ion-list>
+         <ion-item tappable (click)="seleccionarContacto()">
+            <span style="padding-right: 6px;">Para:</span>
+
+            <ion-icon name="md-person-add" item-right color="primary" *ngIf="!from_msj_detail"></ion-icon>
+
+            <ion-chip *ngIf="datos_asignaturas && cod_asignatura" style="max-width: 78%">
+               <span style="padding: 0px 10px; word-wrap: break-word; word-break: break-all" text-wrap>{{datos_asignaturas[cod_asignatura].tipo_clase | tipoClase }} - {{datos_asignaturas[cod_asignatura].nombre}}</span>
+            </ion-chip>
+         </ion-item>
+         <ion-item>
+            <ion-label floating>Asunto:</ion-label>
+            <ion-input type="text" formControlName="asunto" [ngClass]="{'error-border':!mensajeForm.controls['asunto'].valid}"></ion-input>
+         </ion-item>
+         <ion-item>
+            <ion-label floating>Mensaje:</ion-label>
+            <ion-textarea type="text" row="10" formControlName="cuerpo" [ngClass]="{'error-border':!mensajeForm.controls['cuerpo'].valid}"></ion-textarea>
+         </ion-item>
+      </ion-list>
+
+      <div margin>
+         <div class="error-box" *ngIf="mensajeForm.controls['asunto'].hasError('required') && mensajeForm.controls['asunto'].touched">* El asunto del mensaje es requerido</div>
+         <div class="error-box" *ngIf="mensajeForm.controls['asunto'].hasError('minlength') && mensajeForm.controls['asunto'].touched">* La longitud minima del asunto son 5 carácteres</div>
+         <div class="error-box" *ngIf="mensajeForm.controls['asunto'].hasError('maxlength') && mensajeForm.controls['asunto'].touched">* La longitud máxima del asunto son 15 carácteres</div>
+
+         <div class="error-box" *ngIf="mensajeForm.controls['cuerpo'].hasError('required') && mensajeForm.controls['cuerpo'].touched">* El mensaje es requerido</div>
+         <div class="error-box" *ngIf="mensajeForm.controls['cuerpo'].hasError('minlength') && mensajeForm.controls['cuerpo'].touched">* La longitud minima del mensaje son 5 carácteres</div>
+         <div class="error-box" *ngIf="mensajeForm.controls['cuerpo'].hasError('maxlength') && mensajeForm.controls['cuerpo'].touched">* La longitud máxima del mensaje son 100 carácteres.</div>
+      </div>
+
+   </form>
+</ion-content>

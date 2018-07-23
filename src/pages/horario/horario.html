@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle solid color="amarillo" class="boton-menu">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Horario</ion-title>
+  </ion-navbar>
+
+
+  <ion-toolbar color="primary">
+    <ion-buttons text-center>
+      <!--<button ion-button class="horario__btn" [ngClass]="{'active': i == activeSlide }" *ngFor="let dia of dias; let i=index" (click)="slideTo(i)">
+        {{ dia.codDia }}
+      </button>-->
+      <button class="no-asignatura__btn ">No disponible</button>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+   
+
+  <!-- 
+   <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="horario_proximo">
+         <ion-segment-button *ngFor="let dia of dias" value="{{dia.codDia}}">
+            {{dia.codDia}}
+         </ion-segment-button>
+      </ion-segment>
+   </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+
+  <my-notice *ngIf="notice" [notice]="notice"></my-notice>
+  <!-- <div [ngSwitch]="horario_proximo">
+      <div *ngFor="let dia of dias">
+         <ion-list *ngSwitchCase=dia.codDia>
+            <ion-item *ngFor="let det of dia.detalle">
+               <h2>{{det.bloque}} {{det.hora}}: {{det.codAsig}} {{det.nomAsig}}
+                  <br>{{det.sala}}-{{det.ubicacion}}</h2>
+            </ion-item>
+         </ion-list>
+      </div>
+   </div> -->
+
+  <!--
+  <ion-slides #slides (ionSlideWillChange)="onSlide($event)">
+    <ion-slide *ngFor="let dia of dias" class="horario__slide">
+      <h3 class="horario__slide-counter">Hoy tienes {{ dia.detalle.length }} clases</h3>
+
+      <div class="horario-clase__container">
+        <ion-grid no-padding class="horario-clase" *ngFor="let clase of dia.detalle">
+
+          <ion-row class="horario-clase__header">
+            <ion-col col-auto class="cod">{{ clase.bloque }}</ion-col>
+            <ion-col class="time">{{ clase.hora }}</ion-col>
+          </ion-row>
+        
+          <ion-row class="inscripcion-item__info">
+            <h3>{{ clase.nomAsig }}</h3>
+            <br>
+            <p>{{ clase.codAsig }}</p>
+          </ion-row>
+           <ion-row class="horario-clase__tupla">
+            <ion-col col-auto class="key">PROF.</ion-col>
+            <ion-col>Marcelo Acre</ion-col>
+          </ion-row>
+          <ion-row class="horario-clase__tupla">
+            <ion-col col-auto class="key">Lugar</ion-col>
+            <ion-col>{{ clase.ubicacion }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-slide>
+  </ion-slides>-->
+</ion-content>

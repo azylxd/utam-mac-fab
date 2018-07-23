@@ -1,0 +1,137 @@
+page-noticias {
+    .header-azul {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 13rem;
+        z-index: 0;
+        position: absolute;
+        transform: skewY(2deg);
+        transform-origin: top right;
+        background-color: color($colors, primary);
+    }
+    .barra-fecha {
+        text-align: right;
+        margin-top: 4.8rem;
+        position: relative;
+        z-index: 100;
+        .interior-barra {
+            color: white;
+            margin: 0 -3.2rem 4.8rem auto;
+            display: inline-flex;
+            padding: .5rem 3.2rem .5rem 1.6rem;
+            font-size: 1.4rem;
+            align-items: center;
+            border-radius: 3.2rem;
+            vertical-align: middle;
+            background-color: color($colors, amarillo);
+            ion-icon {
+                font-size: 2rem;
+                margin-right: .7rem;
+            }
+        }
+    }
+    .barra-fecha {
+        //fadeInRight( $duration: .5s,$delay: .3s, $function: ease, $fill: both );
+    }
+    .lista-noticias {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        .card-noticia {
+            color: color($colors, primary);
+            padding: 1.6rem;
+            border-radius: .8rem;
+            margin-bottom: 2rem;
+            background-color: color($colors, _gray_purple_light);
+            h3 {
+                text-transform: uppercase;
+                font-weight: bold;
+                margin: 0 auto .8rem;
+                font-size: 1.8rem;
+                line-height: 1;
+            }
+            p {
+                margin: 0 0;//
+            }
+            /*VIEJO
+            span {
+                font-size: 12px;
+            }*/
+            .card-noticia-footer {
+                position: relative;
+                padding-right: 3.2rem;
+                margin-top: 4px;
+                .tiempo-transcurrido {
+                    //width: 78px;
+                    width: 7rem;//
+                    text-align: center;//
+                    color: color($colors, _blue_gray);
+                    padding: .4rem 1.2rem;
+                    display: inline-block;
+                    font-size: 1.2rem;
+                    border-radius: 1.6rem;
+                    background-color: color($colors, primary);
+                    margin-top: 3px;
+                }
+                .accion {
+                    top: 0;
+                    color: color($colors, primary);
+                    right: 0;
+                    position: absolute;
+                    transform: translateY(-50%) translateZ(0); //
+                    border-radius: 50%;
+                    font-size: 2.8rem;
+                    &:active {
+                        transform: translateY(-50%) translateZ(0) scale(.9, .9);
+                    }
+                }
+            }
+        }
+    }
+    .noticia {
+
+
+        p {
+            //text-align: left;
+            //line-height: 17px !important;
+
+            //word-break: break-all;
+            font-family: 'Century Gothic', 'sans-serif' !important;
+            //font-size: 13px !important;
+            &:nth-last-child(n+2) {
+               //background-color: red;
+               margin-bottom: 14px !important; //este
+           }
+
+            span {
+                font-family: inherit !important;
+                font-size: inherit; //padding-bottom: 14px;
+            }
+
+
+        }
+
+    }
+    .noticia-contraida {
+
+        p {
+            &:first-child {
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+            }
+            &:nth-child(n+2) {
+                display: none;
+            }
+        }
+    }
+    .loader {
+        margin: auto;
+        height: 75%;
+        width: 75%;
+    }
+}

@@ -1,0 +1,179 @@
+page-inscripcion {
+    ion-modal,
+    .show-page {
+        // transparent black background overlay
+        background-color: rgba(0, 0, 0, .5) !important;
+        padding: 50px !important;
+    }
+    .toolbar-background {
+        color: red !important;
+    }
+    ion-modal.modal-wrapper {
+        transform: translateY(30%) !important;
+    }
+    ion-page.modal {
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .modal-backdrop-bg {
+        background-color: #000;
+        opacity: 0;
+    }
+    .active .modal-backdrop-bg {
+        opacity: 0.5;
+    }
+    .inscripcion-countdown {
+        color: white;
+        overflow: hidden;
+        border-radius: .4rem;
+        margin-bottom: 1.6rem;
+        .inscripcion-countdown-text,
+        .inscripcion-countdown-time {
+           
+            padding: .4rem .8rem !important; //   align-items:    center;
+            line-height: 1;
+            font-size: .8em;
+        }
+        .inscripcion-countdown-text {
+            text-transform: uppercase;
+            background-color: color($colors, _gray_dark);
+        }
+        .inscripcion-countdown-time {
+            justify-content: center;
+            background-color: color($colors, _red);
+        }
+    }
+
+    .inscripcion-countdown2 {
+        color: white;
+        overflow: hidden;
+        border-radius: .4rem;
+        margin-bottom: 1.6rem;
+        .inscripcion-countdown-text,
+        .inscripcion-countdown-time {
+           
+            padding: .4rem .8rem !important; //   align-items:    center;
+            line-height: 1;
+            font-size: 1rem;
+      
+        }
+        .inscripcion-countdown-text {
+            text-transform: uppercase;
+            background-color: color($colors, _gray_dark);
+            
+            border-radius: .4rem 0 0 .4rem;
+            
+        }
+        .inscripcion-countdown-time {
+            // justify-content: center;
+            background-color: color($colors, _red);
+           
+            border-radius: 0 .4rem .4rem 0;
+            
+        }
+    }
+    // .inscripcion-item {
+    //     border: 1px solid color($colors, _gray_purple_dark);
+    //     position: relative;
+    //     overflow: hidden;
+    //     padding-right: 4.8rem;
+    //     border-radius: .8rem;
+    //     margin-bottom: 1.6rem;
+    //     .inscripcion-item__info {
+    //         padding: .8rem 1.6rem;
+    //         background-color: color($colors, _gray_purple_light);
+    //         h3,
+    //         p {
+    //             font-size: 1.3rem;
+    //             color: color($colors, _blue_light);
+    //             width: 100%;
+    //             margin: 0;
+    //             overflow: hidden;
+    //             line-height: 1;
+    //             white-space: nowrap;
+    //             text-overflow: ellipsis;
+    //             text-transform: uppercase;
+    //         }
+    //         h3 {
+    //             font-size: 1.4rem;
+    //             color: color($colors, primary);
+    //             font-weight: bold;
+    //             margin-bottom: .4rem;
+    //         }
+    //     }
+    //     .inscripcion-item__table {
+    //         font-size: 1.2rem;
+    //         ion-row.row {
+    //             border-top: 1px solid color($colors, _gray_purple_dark);
+    //         }
+    //         .head {
+    //             border-right: 1px solid color($colors, _gray_purple_dark);
+    //             color: white;
+    //             padding: .4rem 1.6rem .4rem 1.6rem !important;
+    //             text-transform: uppercase;
+    //             background-color: color($colors, _gray_dark); //cambiar
+    //             min-width: 7rem;
+    //         }
+    //         .value {
+    //             color: color($colors, _blue_light);
+    //             padding: .4rem 1.6rem !important;
+    //             text-transform: uppercase;
+    //             background-color: color($colors, _gray_purple_light);
+    //         }
+    //     }
+    //     .inscripcion-item__icon {
+    //         top: 0;
+    //         width: 4.8rem;
+    //         right: 0;
+    //         bottom: 0;
+    //         padding: .8rem;
+    //         display: flex;
+    //         position: absolute;
+    //         border-left: 1px solid color($colors, _gray_purple_dark);
+    //         align-items: center;
+    //         justify-content: center;
+    //         background-color: color($colors, _white_gray);
+    //         img {
+    //             max-width: 2.4rem;
+    //         }
+    //     }
+    // }
+
+    .btn-react {
+        box-sizing: margin-box;
+        width: auto;
+        background-color: rgba(color($colors, amarillo), 1);
+        color: #fff;
+        border: solid 1px color($colors, amarillo);
+        height: 47px;
+        border-radius: 5px; //margin: 0px auto;
+        margin: 30px auto 20px; //TOP: 10PX; RIGHT/LEFT: AUTO; BOTTOM: 20PX;
+        font-size: 1.4em;
+        display: block;
+        font-weight: 500;
+        transition: 0.3s;
+        &.small {
+            height: 37px;
+            font-size: 1.4rem;
+            width: 93%;
+            padding: 0;
+            ion-spinner {
+                margin-top: 2px;
+            }
+        }
+        &[disabled] { //ARREGLAR ESTO
+            
+            //background-color: rgba(color($colors, amarillo), 0) !important;
+            background-color: white;
+            color: color($colors, amarillo);
+            opacity: 1 !important;
+        }
+        ion-spinner {
+            margin-top: 5px;
+            * {
+                stroke: #fff;
+                stroke-width: 6px;
+            }
+        }
+    }
+}

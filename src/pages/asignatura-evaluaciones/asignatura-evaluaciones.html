@@ -1,0 +1,60 @@
+<ion-header class="no-border">
+    <ion-navbar color="primary">
+            <button ion-button menuToggle solid color="amarillo" class="boton-menu">
+                    <ion-icon name="menu"></ion-icon>
+                 </button>
+        <ion-title>Evaluaciones</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div class="header-bar">
+        <h2>{{nombre_asignatura}}</h2>
+        <span>{{tipo_clase.TIPO | tipoClase}} - GRUPO {{tipo_clase.GRUPO}}</span>
+    </div>
+
+    <my-notice class="wheader" *ngIf="cantidad_evaluaciones == 1" [notice]="notice"></my-notice>
+
+    <div *ngFor="let key of datos_evaluaciones | keys">
+        <div *ngIf="key != 'ACTIVIDADES'">
+            <table class="tabla">
+                <tr class="tabla__header no-border">
+                    <th colspan="3" class="asignatura"> {{datos_evaluaciones[key].NOMBRE}}</th>
+                    <th class="ponderacion">PONDERA: {{datos_evaluaciones[key].PONDERACION}}%</th>
+                </tr>
+                <tr class="tabla__subheader">
+                    <td class="index_e">#</td>
+                    <td class="other">FECHA</td>
+                    <td class="other">NOTA</td>
+                    <td class="other" *ngIf="datos_evaluaciones[key].IGUAL_PONDERACION == 0; else prom1">Pondera</td>
+                    <ng-template #prom1>
+                        <td>
+                            Promedio
+                        </td>
+                    </ng-template>
+                </tr>
+
+                <ng-container *ngFor="let evaluacion of datos_evaluaciones[key].EVALUACIONES; let i=index">
+                    <tr class="tabla__col">
+
+                        <td rowspan="2" class="index"> {{i+1}}</td>
+                        <td colspan="3" class="title"> {{evaluacion.NOMBRE}}</td>
+                    </tr>
+                    <tr class="tabla__col">
+                        <td>{{evaluacion.FECHA | formatoFecha}}</td>
+                        <td>{{evaluacion.EVALUACION}}</td>
+                        <td *ngIf="datos_evaluaciones[key].IGUAL_PONDERACION == 0; else prom2"> {{evaluacion.PONDERACION}}%</td>
+                        <ng-template #prom2>
+                            <td>
+                                --
+                            </td>
+                        </ng-template>
+                    </tr>
+                </ng-container>
+            </table>
+        </div>
+
+    </div>
+
+</ion-content>

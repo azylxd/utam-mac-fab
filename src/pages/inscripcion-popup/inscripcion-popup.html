@@ -1,0 +1,29 @@
+<ion-content padding>
+
+  <div class="inscripcion-modal-error__container">
+    <div class="inscripcion-modal-error__icon"></div>
+
+    <h1 *ngIf="errors.length != 0" class="inscripcion-modal-error__title">¡Han ocurrido algunos inconvenientes!</h1>
+
+    <h1 *ngIf="errors.length == 0" class="inscripcion-modal-error__title">¡Inscripción Exitosa!</h1>
+
+    <div class="modal-message__container">
+      <div *ngIf="added != 0" class="modal-message success">
+        <h3 class="modal-message__title">{{added}}</h3>
+      </div>
+      <div *ngIf="deleted != 0" class="modal-message success">
+        <h3 class="modal-message__title">{{deleted}}</h3>
+      </div>
+
+      <div class="modal-message error" *ngFor="let error of errors">
+        <h3 class="modal-message__title">{{error.name}}</h3>
+        <p class="modal-message__info">{{error.message}}</p>
+      </div>
+    </div>
+
+    <div text-center>
+      <button class="inscripcion-modal-error__btn" (click)="closeModal()">CERRAR</button>
+    </div>
+  </div>
+
+</ion-content>

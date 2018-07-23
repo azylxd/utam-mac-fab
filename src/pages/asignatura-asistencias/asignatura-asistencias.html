@@ -1,0 +1,54 @@
+<ion-header class="no-border">
+    <ion-navbar color="primary">
+        <ion-title>Asistencia</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="header-bar">
+        <h2>{{nombre_asignatura}}</h2>
+        <span>{{tipo_clase.TIPO | tipoClase}} - {{tipo_clase.GRUPO}}</span>
+    </div>
+
+    <my-notice class="wheader" *ngIf="datos_asistencia.length == 0" [notice]="notice"></my-notice>
+
+    <table class="tabla" *ngIf="datos_asistencia.length != 0">
+        <tr class="tabla__header">
+            <th class="index">#</th>
+            <th>FECHA</th>
+            <th>HORA</th>
+            <th>ASISTENCIA</th>
+            <th class="action"></th>
+        </tr>
+        <!--<tr class="tabla__subheader">
+                <td class="index">#</td>
+                <td text-left>DESCRIPCIÓN</td>
+                <td class="action"></td>
+            </tr>-->
+
+
+        <tr *ngFor="let key of datos_asistencia | keys; let i=index" class="tabla__col">
+            <td class="index">{{i+1}}</td>
+            <td>{{datos_asistencia[key].CLA_FECHA | formatoFecha }}</td>
+            <td>{{datos_asistencia[key].CLA_FECHA | formatoHora }}</td>
+            <td>
+                <span>{{datos_asistencia[key].CLA_NUM_ASIS}}</span>
+            </td>
+            <td>
+
+                <div tappable (click)="modalContenido(datos_asistencia[key])">
+                    <ion-icon style="padding: 0; height: 24px; font-size: 24px;" name="md-more"></ion-icon>
+                </div>
+                <!--<button ion-button icon-only clear color="plomo_oscuro" (click)="modalContenido(datos_asistencia[key])" style="width: auto;
+            margin: 0;
+            height: 24px;
+            padding: .4rem .8rem;
+            min-width: auto;
+            min-height: auto;">
+                    <ion-icon style="padding: 0;" name="md-more"></ion-icon>
+                </button>-->
+            </td>
+        </tr>
+
+    </table>
+</ion-content>

@@ -1,0 +1,100 @@
+<!--
+   MEJORAS A FUTURO*********************************************************************************************************************
+   -BUSCAR FORMA DE NO PONER FONT-SIZE POR CADA ICONO Y QUE TODOS SE VEAN CASI DEL MISMO TAMAÑO.
+   -BUSCAR FORMA DE DEJAR MENOS LINEAS DE CÓDIGO, SOBRE TODO EN LOS ITEMS DE LA LISTA.
+   -HACER QUE EL TITULO ESTE ANCLADO A LA PÁGINA Y SE DESLICE JUNTO A ELLA. EL BOTÓN DE MENÚ DEBE QUEDAR ESTÁTICO COMO YA LO ESTÁ AHORA.
+-->
+<ion-header class="no-border">
+    <ion-navbar transparent>
+        <button ion-button menuToggle solid color="amarillo" class="boton-menu">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title [hidden]="ocultar_titulo">Perfil</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding (ionScroll)="accionScroll()">
+    <div class="header-azul"></div>
+
+    <div class="foto-perfil">
+        <div [ngClass]="estado_conexion" class="connection-circle profile"></div>
+        <div class="perfil-photo__icon">
+            <img [src]="image_tap">
+        </div>
+        <div class="imagen-cortada">
+            <div *ngIf="url_foto" class="imagen-circular" [ngStyle]="{ 'background-image': 'url(' + url_foto + ')' }" (tap)="accionTap()"></div>
+        </div>
+    </div>
+
+    <ul class="lista-uta">
+        <li class="lista-uta__separador">Información Personal</li>
+        <ul class="lista-uta__grupo gray border">
+            <li class="lista-uta__item">
+                <ion-icon style="font-size: 3.2rem" name="md-person"></ion-icon>
+                <div class="info">
+                    <span>Nombre</span>
+                    <h3>{{datos_personales?.NOMBRE | capital}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon style="font-size: 2.75rem" name="md-card"></ion-icon>
+                <div class="info">
+                    <span>RUT</span>
+                    <h3>{{datos_personales?.RUT}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon style="font-size: 3.2rem" name="md-calendar"></ion-icon>
+                <div class="info">
+                    <span>Fecha de Nacimiento</span>
+                    <h3>{{datos_personales?.PNA_FNAC | formatoFecha}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon style="font-size: 3.7rem" name="md-pin"></ion-icon>
+                <div class="info">
+                    <span>Nacionalidad</span>
+                    <h3>{{datos_personales?.PAI_NACIONALIDAD | capital}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon name="md-call" style="font-size: 3.2rem"></ion-icon>
+                <div class="info">
+                    <span>Teléfono</span>
+                    <h3>{{datos_personales?.CELULAR}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon name="md-mail" style="font-size: 2.75rem"></ion-icon>
+                <div class="info">
+                    <span>Correo Electrónico</span>
+                    <h3 style="word-break: break-all;">{{datos_personales?.PER_EMAIL}}</h3>
+                </div>
+            </li>
+        </ul>
+        <li class="lista-uta__separador">información académica</li>
+        <ul class="lista-uta__grupo gray border">
+            <li class="lista-uta__item">
+                <ion-icon name="md-ribbon" style="font-size: 3.2rem"></ion-icon>
+                <div class="info">
+                    <span>Carrera</span>
+                    <h3>{{datos_carrera?.nombre_carrera | capital}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon name="md-calendar" style="font-size: 3.2rem"></ion-icon>
+                <div class="info">
+                    <span>Plan</span>
+                    <h3>{{datos_carrera?.plan_carrera}}</h3>
+                </div>
+            </li>
+            <li class="lista-uta__item">
+                <ion-icon name="md-medical" style="font-size: 3rem"></ion-icon>
+                <div class="info">
+                    <span>Código</span>
+                    <h3>{{datos_carrera?.cod_carrera}}</h3>
+                </div>
+            </li>
+        </ul>
+    </ul>
+</ion-content>

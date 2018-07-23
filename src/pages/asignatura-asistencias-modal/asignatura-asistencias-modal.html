@@ -1,0 +1,21 @@
+<ion-content class="no-border">
+    <h3 class="header">CLASE</h3>
+
+    <div class="fecha-asistencia">
+        <div class="fecha-asistencia__grupo">
+            <h4 class="titulo">FECHA</h4>
+            <span class="contenido">{{clase.CLA_FECHA | formatoFecha }}</span>
+        </div>
+        <div class="fecha-asistencia__grupo">
+            <h4 class="titulo">ASISTENCIA</h4>
+            <span class="contenido">{{clase.CLA_NUM_ASIS}}</span>
+        </div>
+    </div>
+
+    <div class="descripcion">
+        <h4 class="titulo">DESCRIPCIÓN</h4>
+        <p class="contenido" [innerHtml]="clase.CLA_DESC"></p>
+    </div>
+    <!-- <button ion-button full color="offline" class="footer-button" (click)="salir()">CERRAR</button>     -->
+    <h3 tappable (click)="salir()" class="footer">CERRAR</h3>
+</ion-content>

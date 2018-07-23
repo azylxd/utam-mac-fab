@@ -1,0 +1,123 @@
+/**********************************************************************
+*TABLA DE CONTENIDO
+*APARECE EN EVALUACIONES, ASISTENCIAS Y RECURSOS
+***********************************************************************/
+
+.tabla {
+
+    width: 100%; //ANCHO MAXIMO DE LA TABLA CONSIDERANDO LOS PADDING DE LA PÁGINA
+    overflow: hidden; //DEJA REDONDEAR LA TABLA
+    box-shadow: 0 0 0 1px color($colors, _gray_purple_dark); //ME DEJA HACER EL BORDER A LA TABLA
+    background-color: color($colors, _gray_purple_light); //COLOR DE FONDO DE LA TABLA
+    border-style: hidden; //DEJA REDONDER LA TABLA OCULTANDO LOS BORDES CUADRADOS DE LAS CELDAS
+    border-radius: .8rem; //REDONDEA LA TABLA
+    margin-bottom: 3.1rem; //1.6rem
+    border-spacing: 3px;
+    border-collapse: collapse;
+    .tabla__header *,
+    .tabla__subheader * {
+        color: white;
+        padding: .8rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-right: 1px solid color($colors, _gray_purple_dark);
+        border-bottom: 1px solid color($colors, _gray_purple_dark);
+        text-transform: uppercase;
+    }
+    .tabla__header {
+        * {
+            background-color: color($colors, primary);
+            &:last-child {
+                border-right: none;
+            }
+        }
+        &.no-border * {
+            border-right: none;
+        }
+        .asignatura {
+            padding: .8rem 1.6rem;
+            font-size: 1.2rem;
+            text-align: left;
+            font-weight: bold;
+        }
+        .ponderacion {
+            font-size: 1.1rem;
+            padding-left: 0;
+            padding-right: 1.6rem;
+            text-align: right;
+            font-weight: bold;
+        }
+    }
+    .tabla__subheader * {
+        text-align: center;
+        background-color: color($colors, _blue_light);
+        &:last-child {
+            border-right: none;
+        }
+    }
+    .tabla__header,
+    .tabla__subheader {
+        .index {
+            width: 24px; //2rem
+        }
+        .action {
+            width: 2.9rem;
+        }
+    }
+    .tabla__col {
+        border-bottom: 1px solid color($colors, _gray_purple_dark); //BORDER HORIZONTAL
+        td {
+            color: color($colors, primary);
+            padding: .8rem;
+            position: relative;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: bold;
+            border-right: 1px solid color($colors, _gray_purple_dark);
+            text-transform: uppercase;
+            &:last-child {
+                border-bottom: none;
+            }
+            &.index{
+                width: 29px;
+                color: white;
+                background-color: color($colors, _blue_light);
+            }
+            &.title{
+                text-align: left;
+                padding-left: 1.2rem; //EN PANTALLA PC SE VE FEO
+                color: white;
+                background-color: color($colors, _gray_dark);
+            }
+            &:first-child {
+
+            }
+            &.with-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span {
+                    flex: 1;
+                }
+                button {
+                    width: auto;
+                    margin: 0;
+                    height: auto;
+                    padding: .4rem .8rem;
+                    min-width: auto;
+                    min-height: auto;
+                    ion-icon {
+                        padding: 0;
+                    }
+                }
+            }
+            .secundary-text {
+                display: block;
+                font-size: 1.2rem;
+                margin-top: .4rem;
+                font-weight: normal;
+                text-transform: none;
+            }
+        }
+    }
+}

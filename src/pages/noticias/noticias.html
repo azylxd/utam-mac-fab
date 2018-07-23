@@ -1,0 +1,42 @@
+<ion-header>
+   <ion-navbar transparent>
+      <button ion-button menuToggle solid color="amarillo" class="boton-menu">
+         <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title [hidden]="ocultar_titulo">Noticias</ion-title>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding (ionScroll)="accionScroll()">
+   <div class="header-azul"></div>
+
+   <div class="barra-fecha">
+      <div class="interior-barra">
+         <ion-icon name="md-calendar"></ion-icon>
+         <span>{{ fecha_actual | capital}}</span>
+      </div>
+   </div>
+   <!-- <button ion-button primary (click)="sendNotification()">ENVIAR NOTIFICACION</button>
+   <button ion-button primary (click)="rootProfile()">ROOT PROFILE</button> -->
+   <my-notice class="news" *ngIf="datos_noticias?.length == 0" [notice]="notice"></my-notice>
+
+   <div *ngIf="!cargando">
+      <div *ngIf="datos_noticias && datos_noticias?.length != 0; else vacio">
+         <ul class="lista-noticias" *ngFor="let noticia of datos_noticias; let i=index">
+            <li class="card-noticia">
+               <h3>{{noticia.TITULO}}</h3>
+               <div>
+                  <span text-justify class="noticia" [ngClass]="noticia.estado" [innerHtml]="noticia.CUERPO"></span>
+               </div>
+
+               <div class="card-noticia-footer">
+                  <span class="tiempo-transcurrido">{{ noticia.FECHA | tiempoAtras}}</span>
+                  <ion-icon [@rotate]="noticia.activo" tappable (click)="accionNoticia(i)" class="accion" name="md-arrow-dropup-circle"></ion-icon>
+               </div>
+            </li>
+         </ul>
+      </div>
+
+    
+   </div>
+</ion-content>

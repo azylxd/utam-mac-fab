@@ -1,0 +1,70 @@
+<ion-header class="no-border">
+   <ion-navbar color="primary">
+      <ion-title>Resumen</ion-title>
+      <ion-buttons end>
+         <button ion-button class="nav-pill-button" (click)="irProfesores(datos_asignatura)">Profesores</button>
+      </ion-buttons>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <h2 class="header-bar-simple">{{datos_asignatura.NOMBRE}}</h2>
+
+   <ul class="lista-uta">
+
+      <li class="lista-uta__separador first">Evaluaciones</li>
+      <ul class="lista-uta__grupo">
+         <li class="item-asignatura detalle" *ngFor="let tipo_clase of datos_asignatura.TIPOS">
+            <div class="info" tappable (click)="irEvaluaciones(tipo_clase)">
+               <h3 class="nombre">{{tipo_clase.TIPO | tipoClase }}</h3>
+               <p class="cod">GRUPO {{tipo_clase.GRUPO}}</p>
+
+               <div class="accion">
+                  <ion-icon name="ios-arrow-forward"></ion-icon>
+               </div>
+            </div>
+            <div *ngIf="datos_evaluaciones">
+               <ion-badge color="primary" round>{{datos_evaluaciones[codigo_periodo][tipo_clase.CUR_CODIGO]["ACTIVIDADES"]}}</ion-badge>
+            </div>
+         </li>
+      </ul>
+
+      <li class="lista-uta__separador normal">Asistencias</li>
+      <ul class="lista-uta__grupo">
+         <li class="item-asignatura detalle" *ngFor="let tipo_clase of datos_asignatura.TIPOS">
+            <div class="info" tappable (click)="irAsistencias(tipo_clase)">
+               <h3 class="nombre">{{tipo_clase.TIPO | tipoClase}}</h3>
+               <p class="cod">GRUPO {{tipo_clase.GRUPO}}</p>
+
+               <div class="accion">
+                  <ion-icon name="ios-arrow-forward"></ion-icon>
+               </div>
+            </div>
+
+            <div *ngIf="datos_asistencias">
+               <div *ngIf="datos_asistencias[codigo_periodo][tipo_clase.CUR_CODIGO].length === 0; else noRegistros">
+                  <ion-badge color="primary" round>0%</ion-badge>
+               </div>
+               <ng-template #noRegistros>
+                  <ion-badge color="primary" round>{{datos_asistencias[codigo_periodo][tipo_clase.CUR_CODIGO]["porcentaje"] | porcentaje}}%</ion-badge>
+               </ng-template>
+            </div>
+         </li>
+      </ul>
+
+      <li class="lista-uta__separador normal">Recursos</li>
+      <ul class="lista-uta__grupo">
+         <li class="item-asignatura detalle" *ngFor="let tipo_clase of datos_asignatura.TIPOS">
+            <div class="info" tappable (click)="irRecursos(tipo_clase)">
+               <h3 class="nombre">{{tipo_clase.TIPO | tipoClase }}</h3>
+               <p class="cod">GRUPO {{tipo_clase.GRUPO}}</p>
+
+               <div class="accion">
+                  <ion-icon name="ios-arrow-forward"></ion-icon>
+               </div>
+            </div>
+         </li>
+      </ul>
+
+   </ul>
+</ion-content>

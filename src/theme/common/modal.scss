@@ -1,0 +1,153 @@
+/*
+*MODAL DE CONTACTOS
+*/
+
+/**********************************************************************
+*MODAL DE ELECTIVOS
+***********************************************************************/
+
+ion-modal.modal-inscription {
+    .modal-wrapper {
+    
+        top: 0;
+        
+        height: 100%;
+    }
+}
+
+/**********************************************************************
+*MODAL DE AVISO
+***********************************************************************/
+
+ion-modal.modal-result-inscription {
+    background-color: rgba(0, 0, 0, .5) !important;
+    transition: opacity .25s ease-in-out;
+    padding: 20vh 10vw;
+}
+
+/**********************************************************************
+*LE DA UN TAMAÑO Y UN BACKGROUND AL MODAL
+***********************************************************************/
+
+.modal-wrapper {
+    height: 100%; //border-radius: 3% !important;
+    //height: 90vh;
+    //top: 0;
+    //left: 0;
+}
+
+/**********************************************************************
+*LE DA UN TAMAÑO Y UN BACKGROUND AL MODAL
+***********************************************************************/
+
+ion-modal,
+.show-page {
+    // background-color: rgba(0, 0, 0, .5) !important;
+    // padding: 50px !important;
+}
+
+/**********************************************************************
+*?????
+***********************************************************************/
+
+.toolbar-background {
+    color: red !important;
+}
+
+ion-modal.modal-wrapper {
+    height: 100%;
+    transform: translateY(30%) !important;
+}
+
+ion-page.modal {
+    // padding: 30px;
+    // background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-backdrop-bg {
+    background-color: #000;
+    opacity: 0;
+}
+
+.active .modal-backdrop-bg {
+    opacity: 0.5;
+}
+
+ion-modal.modal-uta {
+    // background-color: rgba(0, 0, 0, .5) !important;
+    // transition: opacity .25s ease-in-out;
+    // padding: 20vh 10 vw;
+}
+
+ion-modal.inset-modal {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, .5) !important;
+    transition: opacity .25s ease-in-out;
+    padding: 20vh 10vw;
+}
+
+.caca {
+    /*******************************************************
+    *RODONDERAR LA VENTANA DEL MODAL Y OSCURECER EL FONDO
+    ********************************************************/
+    ion-content {
+        border-radius: 4%;
+    }
+    .scroll-content {
+        overflow: hidden;
+        border-radius: 3%;
+    }
+    /*******************************************************
+    *HEADER
+    ********************************************************/
+    .header {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin: 0; //margin: 0 !important;
+        //margin: auto;
+        //padding: 1.2rem; //height: 8%;
+        font-size: 1.8rem; //text-align: center;
+        font-weight: bold;
+        background-color: color($colors, primary);
+        height: 8vh;
+    }
+    .footer {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin: 0; //margin: 0 !important;
+        //margin: auto;
+        //padding: 1.2rem; //height: 8%;
+        font-size: 1.8rem; //text-align: center;
+        font-weight: bold;
+        background-color: color($colors, _red);
+        height: 8vh;
+    }
+    /*******************************************************
+    *BOTON FOOTER
+    ********************************************************/
+    /*button.footer-button {
+        height: 8vh;
+        display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+        bottom: 0;
+
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }*/
+    button.footer-button {
+        padding: 1.2rem;
+        bottom: 0;
+        position: absolute;
+        left: 0; //
+        margin: 0;
+    }
+}

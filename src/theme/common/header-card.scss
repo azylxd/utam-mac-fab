@@ -1,0 +1,84 @@
+/**********************************************************************
+*BACKGROUND AZUL DEL HEADER-CARD
+*APARECE EN MENSAJES, ASIGNATURAS E INSCRIPCION.
+***********************************************************************/
+
+.header-background {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: -1;
+    position: absolute;
+    background-color: color($colors, primary);
+}
+
+/**********************************************************************
+*HEADER-CARD QUE INDICA EL AÑO Y SEMESTRE (OPCIONALMENTE UN EXTRA)
+*APARECE EN MENSAJES, ASIGNATURAS E INSCRIPCION
+***********************************************************************/
+
+.header-card {
+    padding: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+    border-radius: .4rem;
+    background-color: white;
+    height: 9.4rem;
+    &.pre {
+        margin: 0;
+    }
+    &.extra {
+        height: 12.2rem;
+        .semestre {
+            margin-bottom: .8rem;
+        }
+    }
+    &.bullets {
+        margin: 0 auto 3.2rem;
+    }
+    &.no-bullets {
+        margin: 0 auto 2.5rem !important;
+    }
+    .annio,
+    .semestre {
+        margin: 0;
+        text-align: left;
+        line-height: 1;
+    }
+    .annio {
+        margin: 0 !important;
+        color: color($colors, primary);
+        font-size: 4.6rem;
+        font-weight: bold;
+    }
+    .semestre {
+        color: color($colors, _blue_light);
+        font-size: 1.8rem;
+        font-weight: 500;
+        padding-left: 2px;
+    }
+    .total {
+        text-align: right;
+        span {
+            color: white;
+            padding: .4rem 3.6rem .4rem 1.6rem;
+            display: inline-block;
+            font-size: 1.4rem;
+            margin-right: -3.2rem;
+            border-radius: 1.6rem;
+            background-color: color($colors, _blue_light);
+        }
+    }
+}
+
+/**********************************************************************
+*PRE CONTENEDOR NECESARIO EN PÁGINAS DONDE HAY SLIDES
+*APARECE EN MENSAJES Y ASIGNATURAS
+***********************************************************************/
+
+.pre-container {
+    padding: 1.6rem;
+    width: 100%;
+    position: absolute;
+}

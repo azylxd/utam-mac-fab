@@ -1,0 +1,27 @@
+page-mensaje-contactos {
+
+
+   //PARA QUE NO SE VEA EL COLOR BLANCO DEL MODAL Y QUE SE NOTA DEBAJO DEL BOTON CERRAR.
+   .content{
+      background-color: transparent;
+   }
+   .contactos{
+      background-color: #fff;
+      overflow: scroll;
+      height: 74vh;
+   }
+
+
+}
+
+.modal-wrapper {
+    border-radius: 3% !important;
+    height: 90vh;  
+    top: 5vh;
+}
+
+ion-modal.modal-contacts {
+    background-color: rgba(0, 0, 0, .6) !important;
+    transition: opacity .25s ease-in-out;
+    padding: 5vh 5vw;
+}

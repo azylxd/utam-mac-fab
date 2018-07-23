@@ -1,0 +1,89 @@
+page-mensajes {
+    /*******************************************************
+    *SLIDER
+    ********************************************************/
+    ion-slides {
+        //height: 100%;
+        height: auto;
+    }
+    .slide-periodo {
+        //height: auto;
+        height: auto;
+        min-height: 500px;
+        display: block;
+        padding: 1.6rem;
+        overflow-y: auto;
+    }
+    /*******************************************************
+    *INDICADOR DE PÁGINA DEL SLIDER
+    ********************************************************/
+    .swiper-container .swiper-pagination {
+        top: 11rem;
+        padding: .4rem .8rem;
+        .swiper-pagination-bullet {
+            width: 3.2rem;
+            height: .8rem;
+            margin: 0 .4rem;
+            opacity: 1;
+            transition: all .3s ease;
+            border-radius: .4rem;
+            background-color: color($colors, _blue_gray);
+            &.swiper-pagination-bullet-active {
+                width: 4.8rem;
+                background-color: color($colors, amarillo);
+            }
+        }
+    }
+    .loader {
+        margin: auto;
+        height: 75%;
+        width: 75%; //position: relative;
+        //overflow: hidden;
+    }
+    .card {
+        background-color: white;
+        height: 9.4rem;
+        padding: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+        border-radius: .4rem;
+        &.extra {
+            height: 12.2rem;
+            .semestre {
+                margin-bottom: .8rem;
+            }
+        }
+        .annio,
+        .semestre {
+            margin: 0;
+            text-align: left;
+            line-height: 1;
+        }
+        .annio {
+            margin: 0 !important;
+            color: color($colors, primary);
+            font-size: 4.6rem;
+            font-weight: bold;
+        }
+        .semestre {
+            color: color($colors, _blue_light);
+            font-size: 1.8rem;
+            font-weight: 500;
+            padding-left: 2px;
+        }
+        .total {
+            text-align: right;
+            span {
+                color: white;
+                padding: .4rem 3.6rem .4rem 1.6rem;
+                display: inline-block;
+                font-size: 1.4rem;
+                margin-right: -3.2rem;
+                border-radius: 1.6rem;
+                background-color: color($colors, _blue_light);
+            }
+        }
+    }
+
+
+}

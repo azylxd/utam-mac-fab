@@ -1,0 +1,80 @@
+<li tappable class="inscripcion-item">
+
+  <div class="inscripcion-item__info">
+    <h3>{{inscription.nombre}}</h3>
+    <p *ngIf="elective; else subject">CÓDIGO {{inscription.codigo}}</p>
+    <ng-template #subject>
+      <p>CÓDIGO {{inscription.codigo}} / POSICIÓN {{inscription.posicion}}</p>
+    </ng-template>
+  </div>
+
+
+  <!-- EQUIVALENTE -->
+  <!--<ion-grid *ngIf="inscription.confirmado != 1" no-padding class="inscripcion-item__table">
+    <ion-row>
+      <ion-col col-auto class="head">CUPOS</ion-col>
+      <ion-col *ngIf="inscription.caracter == 1 || !inscription.caracter; else electiveEquivalente" class="value">{{inscription.cupo}}</ion-col>
+      <ng-template #electiveEquivalente>
+        <ion-col class="value">REVISAR</ion-col>
+      </ng-template>
+    </ion-row>
+    <ion-row>
+      <ion-col col-auto class="head">CARRERA</ion-col>
+      <ion-col class="value">{{inscription.inscripcion[1]['ACAD']}}</ion-col>
+    </ion-row>
+  </ion-grid>-->
+
+
+  <!-- CUPOS DISPONIBLES -->
+  <ion-grid *ngIf="inscription.confirmado != 1" no-padding class="inscripcion-item__table">
+    <ion-row>
+      <ion-col col-auto class="head">CUPOS DISPONIBLES</ion-col>
+      <ion-col *ngIf="inscription.caracter == 1 || !inscription.caracter; else electiveEquivalente" class="value">{{inscription.cupo}}</ion-col>
+      <ng-template #electiveEquivalente>
+        <ion-col class="value">REVISAR</ion-col>
+      </ng-template>
+    </ion-row>
+    <ion-row *ngIf="elective && (inscription.caracter == 3)">
+      <ion-col col-auto class="head">CARRERA</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- GRUPOS Y PROFESORES -->
+  <ion-grid *ngIf="inscription.confirmado" no-padding class="inscripcion-item__table">
+    <ion-row *ngIf="inscription.inscripcion[0]['C']">
+      <ion-col col-auto class="head">CÁT. {{inscription.inscripcion[0]['C']}}</ion-col>
+      <ion-col class="value">{{inscription.inscripcion[0]['ACAD']}}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="inscription.inscripcion[1]['T']">
+      <ion-col col-auto class="head">TALL. {{inscription.inscripcion[1]['T']}}</ion-col>
+      <ion-col class="value">{{inscription.inscripcion[1]['ACAD']}}</ion-col>
+    </ion-row>
+    <ion-row *ngIf="inscription.inscripcion[2]['L']">
+      <ion-col col-auto class="head">LAB. {{inscription.inscripcion[2]['L']}}</ion-col>
+      <ion-col class="value">{{inscription.inscripcion[2]['ACAD']}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- ICONOS SELECT -->
+  <div class="inscripcion-item__icon">
+    <!-- ICONO CONFIRMADO -->
+    <!-- <img *ngIf="(inscription.inscrito == 1) || (inscription.codigo == current_elective)" src="./assets/images/select/checked1.svg"> -->
+    <!-- <img *ngIf="(inscription.confirmado == 1 && inscription.inscrito == 1) || (inscription.codigo == current_elective)" src="./assets/images/select/checked1.svg"> -->
+    <!-- ICONO INSCRIBIR -->
+    <!-- <img *ngIf="inscription.confirmado != 1 && inscription.inscrito == 1" src="./assets/images/select/checked2.svg"> -->
+    <!-- ICONO SIN INSCRIBIR -->
+    <!-- <img *ngIf="(inscription.inscrito != 1 && inscription.cupo != 0) && (inscription.codigo != current_elective)" src="./assets/images/select/blank.svg"> -->
+    <!-- ICONO ERROR -->
+    <!-- <img *ngIf="inscription.cupo == 0 && inscription.confirmado != 1" src="./assets/images/select/cancel.svg"> -->
+
+    <img *ngIf="(inscription.inscrito == 1) || (inscription.codigo == current_elective);else blank" src="./assets/images/select/checked1.svg">
+    <ng-template #blank>
+      <img *ngIf="(inscription.inscrito != 1 && inscription.cupo != 0) && (inscription.codigo != current_elective);else disabled"
+        src="./assets/images/select/blank.svg">
+    </ng-template>
+    <ng-template #disabled>
+      <img src="./assets/images/select/cancel.svg">
+    </ng-template>
+  </div>
+
+</li>

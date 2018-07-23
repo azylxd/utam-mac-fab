@@ -1,0 +1,46 @@
+page-perfil {
+    .header-azul {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 13rem;
+        z-index: -1;
+        position: absolute;
+        transform: skewY(-2deg);
+        transform-origin: top left;
+        background-color: color($colors, primary);
+    }
+    .foto-perfil {
+        width: 12.8rem;
+        margin: 48px auto 3.2rem;
+        height: 12.8rem;
+        background-color: color($colors, _gray_purple_light);
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        .perfil-photo__icon {
+            right:            0;
+            width:            4rem;
+            bottom:           0;
+            height:           4rem;
+            z-index:          2;
+            display:          flex;
+            position:         absolute;
+            align-items:      center;
+            border-radius:    50%;
+            justify-content:  center;
+            background-color: color($colors, _blue_light);
+            img { max-width: 3rem; }
+          }
+    } //ANIMAXION
+    .foto-perfil {
+        animation-name: bounceIs;
+        animation-iteration-count: 1;
+        animation-duration: .5s;
+        animation-delay: .3s;
+        animation-timing-function: ease;
+        animation-fill-mode: both;
+        backface-visibility: hidden;
+    }
+}
+

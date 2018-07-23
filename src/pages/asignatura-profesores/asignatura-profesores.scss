@@ -1,0 +1,35 @@
+page-asignatura-profesores {
+    .item-profesor {
+        padding: 4.2rem .8rem .8rem;
+        position: relative;
+        margin-top: 90px;
+        margin-bottom: 1.6rem;
+        border-radius: .8rem;
+        background-color: color($colors, primary);
+        .item-profesor__foto {
+            top: -68px;
+            left: 1.6rem;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            box-shadow: 3px 6px 12px rgba(#333, .16);
+            border-radius: .8rem;
+            background-size: cover;
+            background-color: color($colors, _gray_purple_light);
+            background-position: center;
+        }
+        .item-profesor__botones {
+            top: 0;
+            right: 1.6rem;
+            display: flex;
+            position: absolute;
+            transform: translateY(-50%);
+            button {
+                margin-right: .8rem;
+                &:last-child {
+                    right: 0;
+                }
+            }
+        }
+    }
+}

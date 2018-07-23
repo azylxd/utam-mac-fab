@@ -1,0 +1,56 @@
+<ion-header class="no-border">
+    <ion-navbar color="primary">
+        <button ion-button icon-only menuToggle solid color="amarillo" class="boton-menu">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Asignatura</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="header-background"></div>
+    <!-- PRE REENDERIZADO DEL HEADER -->
+    <!-- <div class="pre-container">
+        <div class="header-card extra pre"></div>
+    </div> -->
+
+
+    <ion-slides *ngIf="datos_periodos && datos_periodos?.length != 0" pager (ionSlideWillChange)="cambioSlide()">
+        <ion-slide #slider *ngFor="let periodo of datos_periodos; let i=index;" class="slide-periodo">
+
+            <!-- <div class="header-card extra">
+                <h3 class="annio">{{periodo.ANO}}</h3>
+                <h4 class="semestre">SEMESTRE {{periodo.SEMESTRE}}</h4>
+                <div class="total">
+                    <span>{{periodo.cantidad_asignaturas}}</span>
+                </div>
+            </div> -->
+
+            <my-card-header [year]="periodo.ANO" [semester]="periodo.SEMESTRE" [sum]="periodo.cantidad_asignaturas"></my-card-header>
+            
+            <div class="asignatura-fechas">
+                <div class="inicio">
+                    <span class="texto">INICIO</span>
+                    <span class="fecha">{{periodo.F_INI | formatoFecha }}</span>
+                </div>
+                <div class="fin">
+                    <span class="texto">TÉRMINO</span>
+                    <span class="fecha">{{periodo.F_TER | formatoFecha }}</span>
+                </div>
+            </div>
+
+            <ul class="lista-uta" *ngIf="datos_inscripciones">
+                <li class="item-asignatura main" *ngFor="let inscripcion of datos_inscripciones[periodo.PERIODO]">
+                    <div tappable class="info" (click)="irResumenAsignatura(inscripcion)">
+                        <h3 class="nombre">{{ inscripcion.NOMBRE }}</h3>
+                        <p class="cod">{{ inscripcion.CODIGO }}</p>
+                        <div class="accion">
+                            <ion-icon name="ios-arrow-forward"></ion-icon>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

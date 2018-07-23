@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle solid color="amarillo" class="boton-menu">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notificaciones</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <my-notice *ngIf="data_notification.length == 0" [notice]="notice"></my-notice>
+  <div *ngIf="data_notification.length != 0">
+    <h5>HAY NOTIFICACIONES:</h5>
+    <div *ngFor="let notification of data_notification">
+      <p>{{notification.body}}</p>
+      <p>{{notification.date | tiempoAtras | capital }}</p>
+      <p>{{notification.date}}</p>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+.btn-reactive {
+    box-sizing: margin-box;
+    max-width: 730px;
+    width: 80vw;
+    background-color: rgba(color($colors, amarillo), 1);
+    color: #fff;
+    border: solid 1px color($colors, amarillo);
+    height: 47px;
+    border-radius: 5px; //margin: 0px auto;
+    margin: 30px auto 20px; //TOP: 10PX; RIGHT/LEFT: AUTO; BOTTOM: 20PX;
+    font-size: 1.4em;
+    display: block;
+    font-weight: 500;
+    transition: 0.3s;
+    &.small {
+        height: 37px;
+        font-size: 1.4rem;
+        width: 100%;
+        padding: 0;
+        ion-spinner {
+            margin-top: 2px;
+        }
+    }
+    &[disabled] { //ARREGLAR ESTO
+        color: red;
+        //background-color: rgba(color($colors, amarillo), 0) !important;
+        background-color: white;
+        //color: color($colors, amarillo);
+        opacity: 1 !important;
+    }
+    ion-spinner {
+        margin-top: 5px;
+        * {
+            stroke: #fff;
+            stroke-width: 6px;
+        }
+    }
+}

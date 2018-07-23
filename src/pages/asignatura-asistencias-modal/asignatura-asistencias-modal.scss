@@ -1,0 +1,73 @@
+page-asignatura-asistencias-modal {
+
+    background-color: rgba(0, 0, 0, .6) !important;
+    //transition: opacity .25s ease-in-out;
+    padding: 5vh 5vw;
+    //border-radius: 3% !important;
+    height: 90vh;
+    top: 0;
+    left: 0;
+
+    .scroll-content{
+        padding: 5vh 5vw;
+    }
+   .content{
+      background-color: transparent;
+   }
+    .fecha-asistencia {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .fecha-asistencia__grupo {
+            flex: 1;
+            text-align: center;
+            .titulo {
+                color: white;
+                margin: 0;
+                font-size: 1.6rem;
+                background-color: color($colors, _blue_light);
+                padding: .8rem;
+                height: 5.5vh;
+            }
+            .contenido {
+                padding: .8rem;
+                color: color($colors, _gray_dark);
+                font-size: 1.6rem;
+                background-color: #fff;
+                text-transform: uppercase;
+                display: block;
+                height: 5.5vh;
+            }
+            &+.fecha-asistencia__grupo {
+                .titulo {
+                    border-left: 1px solid white;
+                }
+                .contenido {
+                    border-left: 1px solid color($colors, _gray_dark);
+                }
+            }
+        }
+    }
+
+    .descripcion {
+        .titulo {
+            text-align: center;
+            color: white;
+            margin: 0;
+            font-size: 1.6rem;
+            background-color: color($colors, _blue_light);
+            padding: .8rem;
+            height: 5.5vh;
+        }
+        .contenido {
+            color: color($colors, _gray_dark);
+            padding: 1.6rem;
+            font-size: 1.6rem;
+            margin: 0 0;
+            text-transform: uppercase;
+            height: 57.5vh;
+            background-color: #fff;
+        }
+    }
+}

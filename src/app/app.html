@@ -1,0 +1,45 @@
+<ion-menu [content]="content" class="menu">
+
+    <ion-content>
+
+        <div class="menu-header">
+            <div [ngClass]="estado_conexion" class="connection-circle menu"></div>
+            <div class="menu-header__photo" [ngStyle]="{ 'background-image': 'url(' + url_foto + ')' }"></div>
+
+
+            <div class="menu-header__info">
+                <h3>{{datos_personales?.PRIMER_NOMBRE | capital}} {{datos_personales?.PNA_APAT | capital}}</h3>
+                <p>{{datos_personales?.RUT}}</p>
+            </div>
+        </div>
+
+        <div class="menu-list">
+            <button menuClose class="menu-item" *ngFor="let p of pages" (click)="abrirPagina(p)">
+                <ion-icon [style.font-size]="p.css" name="{{p.icon}}"></ion-icon>
+                {{p.title}}
+            </button>
+            <button menuClose class="menu-item" (click)="logout()">
+                <ion-icon name="md-power"></ion-icon>
+                Cerrar Sesión
+            </button>
+        </div>
+
+        <div class="menu-footer" (click)="showDeviceInfo()">
+            <div *ngIf="!status_footer;else deviceInfo">
+                <strong>UTA Móvil </strong>v.0.2.5 © 2018
+                <br> Todos los derechos reservados.
+            </div>
+            <ng-template #deviceInfo>
+                {{device_info}}
+            </ng-template>
+        </div>
+
+
+
+
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

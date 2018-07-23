@@ -1,0 +1,408 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import "../theme/iconos_externos";
+@import "../theme/common";
+.align-center {
+    text-align: center;
+}
+
+//PARA QUITAR LOS BORDES EN IOS
+ion-header.no-border:after {
+    background-image: none;
+}  
+.teclado-abierto {
+    .esconder-logo {
+        display: none !important; //OCULTA EL LOGO
+    }
+    .centra-form {
+        .scroll-content {
+            padding-top: 27rem !important;
+            //padding-top: 11vh !important; //CENTRA EL FORM EN LA PANTALLA CUANDO SE PRESIONA EL INPUT?? WINDOWS
+            overflow: hidden;
+        }
+    }
+}
+
+page-noticias,
+page-perfil {
+    .scroll-content {
+        margin-top: 0 !important;
+    }
+}
+
+/*******************************************************
+*HEADER
+********************************************************/
+
+//COLOR DEL TITULO
+.toolbar-title {
+    color: #FFFFFF;
+}
+
+//QUITA LA SOMBRA DEL HEADER
+.header::after {
+    background-image: none;
+}
+
+/*******************************************************
+*COLORES DE CONEXION A INTENET
+********************************************************/
+
+.conectado {
+    background-color: color($colors, _green) !important;
+}
+
+.desconectado {
+    background-color: color($colors, _red) !important
+}
+
+/*******************************************************
+*LISTA DE ITEMS
+********************************************************/
+
+.lista-uta {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 1.6rem;
+    .contactos &:last-child {
+        //ULTIMO ITEM DE LA LISTA
+        //margin-bottom: 30px;
+        margin-bottom: 0;
+    }
+    /*SEPARADOR****************************/
+    .lista-uta__separador {
+        flex: 0 0 auto;
+        width: auto;
+        color: color($colors, _gray_dark); //COLOR DEL TÍTULO
+        margin: 0 -1.6rem 1.6rem;
+        display: flex;
+        font-size: 1.4rem;
+        align-items: center;
+        line-height: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+        justify-content: center;
+        .normal {
+            padding-top: 1.6rem;
+        }
+        .first {
+            padding-top: 0 !important;
+        }
+        &.blue {
+            color: color($colors, primary);
+        }
+        &:after,
+        &:before {
+            width: 100%;
+            height: 2px;
+            content: '';
+            background-color: color($colors, _gray_light); //RAYA DE TÍTULO. APARECE EN PERFIL, DETALLE ASIGNATURA
+        }
+        &:before {
+            width: 1.6rem;
+            margin-right: 1.6rem;
+        }
+        &:after {
+            width: 100%;
+            flex-grow: 1;
+            flex-basis: 0;
+            margin-left: 1.6rem;
+        }
+    }
+    .lista-uta__separator-content {
+      color:  color($colors, _gray_dark);
+      font-size: 1.2rem;
+      margin: -.8rem 0 0;
+      padding: 0 1.2rem;
+    }
+    .lista-uta__separator-close {
+      height: .2rem;
+      margin: .8rem -1.6rem 1.6rem;
+      background-color: color($colors, _gray_light);
+    }
+    /*GRUPO****************************/
+    .lista-uta__grupo {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        margin-bottom: 3.2rem;
+        &.border {
+            border: 1px solid color($colors, _gray_purple_dark);
+        }
+        &.gray {
+            border-radius: .8rem;
+            background-color: color($colors, _gray_purple_light);
+        }
+        &.light {
+            border-radius: .8rem;
+            background-color: color($colors, _white_gray);
+        }
+        &:last-child {
+            margin: 0;
+        }
+    }
+    /*ITEM****************************/
+    .lista-uta__item {
+        color: color($colors, primary);
+        display: flex;
+        padding: .8rem 1.2rem;
+        align-items: center;
+        border-bottom: 1px solid color($colors, _gray_purple_dark); //BORDER SEPARADOR DE ITEMS
+        &:last-child {
+            border: none;
+        }
+        ion-icon {
+            margin-right: 1.2rem;
+            width: 3rem;
+            text-align: center;
+        }
+        .info {
+            span {
+                color: rgba(color($colors, primary), .75);
+                display: block;
+                font-size: 1.1rem;
+                line-height: 1;
+                margin-bottom: .4rem;
+            }
+            h3 { 
+                margin: 0;
+                font-size: 1.4rem;
+                line-height: 1.25;
+                font-weight: normal;
+                //word-break: break-all;
+            }
+        }
+    }
+}
+
+/*******************************************************
+*LISTA DE ASIGNATURAS
+********************************************************/
+
+page-mensajes,
+page-mensaje-contactos {
+    .item-asignatura {
+        padding: .8rem 1.4rem 1.2rem;
+        padding-right: 5.4rem;
+        position: relative;
+        align-items: center;
+        margin-bottom: 1.6rem;
+        border-radius: .4rem;
+        background-color: color($colors, _gray_purple_light);
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .info {
+            text-align: left;
+            .tipo,
+            .nombre {
+                margin: 0;
+                line-height: 1;
+            }
+            .tipo {
+                color: white;
+                display: inline-block;
+                padding: .5rem .9rem .4rem;
+                font-size: 1rem;
+                margin-bottom: .85rem;
+                border-radius: .4rem;
+                font-weight: 700;
+                background-color: color($colors, primary);
+            }
+            .nombre {
+                color: color($colors, primary);
+                overflow: hidden;
+                font-size: 1.4rem;
+                font-weight: bold;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                text-transform: uppercase;
+            }
+        }
+        .extra {
+            top: 0;
+            right: 0;
+            display: flex;
+            position: absolute;
+            align-items: flex-end;
+            flex-direction: column;
+            justify-content: center;
+            &.padding1 {
+                padding: 1.9rem 1.6rem; //
+            }
+            &.padding2 {
+                padding: 2.5rem 1.6rem 1rem; //
+            }
+            .notificaciones,
+            .fecha {
+                display: inline-block;
+                font-size: 1.1rem; //
+                line-height: 1;
+            }
+            .notificaciones {
+                color: white;
+                padding: .3rem .8rem .2rem;
+                border-radius: 1.6rem;
+                margin-top: .9rem;
+                background-color: color($colors, amarillo);
+            }
+            .fecha {
+                color: color($colors, primary);
+            }
+            .seleccionado {
+                display: inline-block;
+                font-size: 2.5rem;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+page-asignaturas,
+page-asignatura-resumen {
+    .item-asignatura {
+        display: flex;
+        position: relative;
+        overflow: hidden; //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.12);
+        border: 1px solid color($colors, _gray_purple_dark);
+        align-items: center;
+        margin-bottom: 1.6rem;
+        border-radius: .4rem;
+        background-color: color($colors, _gray_purple_light);
+        ; //<-----
+        &.main {
+            padding: 1.6rem 3.5rem 1.6rem 1.6rem;
+            .nombre {
+                overflow: hidden; //ESCONCE LOS ACENTOS PERO PERMITE EL ...
+            }
+        }
+        &.detalle {
+            padding: 1.6rem 4rem 1.6rem 1.6rem;
+        }
+        .info {
+            flex: 1;
+        }
+        .nombre,
+        .cod {
+            margin: 0;
+            text-align: left;
+            line-height: 1;
+        }
+        .nombre {
+            color: color($colors, primary);
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: .4rem;
+            white-space: normal;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .cod {
+            color: color($colors, _blue_light);
+            font-size: 1.3rem;
+        }
+        ion-badge {
+            font-weight: normal;
+            border-radius: 1.6rem;
+        }
+        .accion {
+            top: 50%;
+            color: white;
+            right: 0;
+            width: 5.4rem;
+            padding: 1.3rem 1rem 1rem 1rem;
+            height: 5.4rem;
+            position: absolute;
+            transform: translate(50%, -50%);
+            font-size: 2.4rem;
+            text-align: left;
+            border-radius: 50%;
+            background-color: color($colors, amarillo);
+        }
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+page-asignatura-asistencias-modal,
+page-mensaje-contactos {
+    /*******************************************************
+    *RODONDERAR LA VENTANA DEL MODAL Y OSCURECER EL FONDO
+    ********************************************************/
+    ion-content {
+        border-radius: 4%;
+    }
+    .scroll-content {
+        overflow: hidden;
+        border-radius: 3%;
+    }
+    /*******************************************************
+    *HEADER
+    ********************************************************/
+    .header {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin: 0; //margin: 0 !important;
+        //margin: auto;
+        //padding: 1.2rem; //height: 8%;
+        font-size: 1.8rem; //text-align: center;
+        font-weight: bold;
+        background-color: color($colors, primary);
+        height: 8vh;
+    }
+    .footer {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin: 0; //margin: 0 !important;
+        //margin: auto;
+        //padding: 1.2rem; //height: 8%;
+        font-size: 1.8rem; //text-align: center;
+        font-weight: bold;
+        background-color: color($colors, _red);
+        height: 8vh;
+    }
+    /*******************************************************
+    *BOTON FOOTER
+    ********************************************************/
+    /*button.footer-button {
+        height: 8vh;
+        display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+        bottom: 0;
+
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }*/
+    button.footer-button {
+        padding: 1.2rem;
+        bottom: 0;
+        position: absolute;
+        left: 0; //
+        margin: 0;
+    }
+}

@@ -1,0 +1,39 @@
+<ion-header class="no-border">
+    <ion-navbar color="primary">
+        <ion-title>Mensajes</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class="header-bar">
+        <h2>{{datos_asignatura.nombre}}</h2>
+        <span>{{datos_asignatura.tipo_clase | tipoClase }}</span>
+    </div>
+
+    <div class="chat" *ngIf="datos_mensajes">
+        <!--<p class="date"><span>Ayer</span></p>-->
+        <div *ngFor="let mensaje of datos_mensajes">
+            <!--<p *ngIf="mensaje.FECHAENVIO" class="date"><span>Hoy</span></p>-->
+            <div *ngIf="mensaje.DESTINO != '1'" class="nube-mensaje usuario-2">
+                <h3 class="header">{{mensaje.TITULO}}</h3>
+                <span class="mensaje" [innerHtml]="mensaje.MENSAJE"></span>
+                <!--<span class="time">7:02 pm</span>-->
+                <span class="fecha">{{mensaje.FECHAENVIO}} {{mensaje.HORAENVIO}}</span>
+            </div>
+
+
+            <div *ngIf="mensaje.DESTINO == '1'" class="nube-mensaje usuario">
+                <h3 class="header">{{mensaje.TITULO}}</h3>
+                <span class="mensaje" [innerHtml]="mensaje.MENSAJE"></span>
+                <!--<p class="msj"></p>-->
+                <span class="fecha">{{mensaje.FECHAENVIO}} {{mensaje.HORAENVIO}}</span>
+            </div>
+        </div>
+    </div>
+
+    <ion-fab right bottom>
+        <button ion-fab color="_red" (click)="nuevoMensaje(cod_asignatura)">
+            <ion-icon name="md-create"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

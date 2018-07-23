@@ -1,0 +1,30 @@
+<ion-content class="centra-form">
+
+    <div class="esconder-logo logo-container">
+        <img [src]="img_logo" class="logo" />
+    </div>
+
+    <form [formGroup]="loginForm" class="login-form">
+
+        <label>
+            <ion-icon class="login-icon" name="md-person"></ion-icon>
+            <input type="text" placeholder="RUT" formControlName="rut" (input)="digitosValidosRut()" (focus)="limpiarRut()" (blur)="formatearRut()"
+                maxlength="12" required/>
+            <ion-icon class="invalid-email" name="md-close-circle" *ngIf="loginForm.controls.rut.invalid && loginForm.controls.rut.dirty && loginForm.controls.rut.touched"></ion-icon>
+        </label>
+
+        <label>
+            <ion-icon class="login-icon" name="md-lock"></ion-icon>
+            <input type="password" class="form-control" placeholder="Contraseña" formControlName="contrasena" minlegth="4" maxlength="15"
+                required/>
+            <ion-icon class="invalid-email" name="md-close-circle" *ngIf="loginForm.controls.contrasena.invalid && loginForm.controls.contrasena.dirty && loginForm.controls.contrasena.touched"></ion-icon>
+        </label>
+
+    </form>
+
+    <button block class="btn-signin" (click)="login()" [@animacionBotonCirculo]='estado_boton' [disabled]="loginForm.invalid">
+        {{estado_label == 'circulo' ? '' : 'Ingresar'}}
+        <ion-spinner *ngIf="estado_boton == 'circulo'" name="crescent"></ion-spinner>
+    </button>
+
+</ion-content>

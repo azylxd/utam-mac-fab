@@ -1,0 +1,93 @@
+<ion-header class="no-border">
+      <ion-navbar color="primary">
+            <button ion-button icon-only menuToggle solid color="amarillo" class="boton-menu">
+                  <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title>Inscripción</ion-title>
+            <ion-buttons end>
+                  <button ion-button icon-only (click)="obtenerDatos()">
+                        <ion-icon name="md-refresh"></ion-icon>
+                  </button>
+            </ion-buttons>
+      </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <!-- LOADER -->
+      <my-loader *ngIf="cargando; else ntce"></my-loader>
+
+      <!-- AVISO -->
+      <ng-template #ntce>
+            <my-notice *ngIf="notice; else data" [notice]="notice"></my-notice>
+      </ng-template>
+
+      <!-- DATOS -->
+      <ng-template #data>
+            <div>
+
+                  <!--  {{cantidad_inscripciones}} -->
+                  <!-- <my-card-header [year]="period.year" [semester]="period.semester" [sum]="period.sum"></my-card-header> -->
+
+                  <div class="header-background"></div>
+                  <div class="header-card extra no-bullets">
+                        <h3 class="annio">{{year}}</h3>
+                        <h4 class="semestre">SEMESTRE {{semester}}</h4>
+                        <div class="total">
+                              <span>{{total_inscriptions}}</span>
+                        </div>
+                  </div>
+
+                  <ul class="lista-uta" style="margin-bottom: 80px;">
+
+                        <!-- INFORMACIÓN -->
+                        <li class="lista-uta__separador">Nota</li>
+                        <p class="lista-uta__separator-content">
+                              {{info_message}}
+                        </p>
+                        <div class="lista-uta__separator-close"></div>
+
+                        <!-- CONTADOR Cualquier inconsistencia con las inscripciones dirigirse al departamento de desarrollo tecnológico de la universidad.-->
+                        <!-- <ion-grid no-padding style="margin: 20px 0;" class="inscripcion-countdown">
+                              <ion-row text-right>
+                                    <ion-col col-auto class="inscripcion-countdown-text">PROCESO DE INSCRIPCIÓN FINALIZA EN</ion-col>
+                                    <ion-col col-auto class="inscripcion-countdown-time">{{final_time_left}}</ion-col>
+                              </ion-row>
+                        </ion-grid> -->
+
+                        <!-- CONTADOR2 -->
+                        <ion-grid no-padding style="margin: 20px 0; text-align:center" class="inscripcion-countdown2">
+                              <ion-row text-right>
+                                    <ion-col class="inscripcion-countdown-text">PROCESO DE INSCRIPCIÓN FINALIZA EN</ion-col>
+                                    <ion-col col-auto class="inscripcion-countdown-time">{{final_time_left}}</ion-col>
+                              </ion-row>
+                              <!-- <ion-row>
+                                    <ion-col>PROCESO DE INSCRIPCIÓN FINALIZADO</ion-col>
+                              </ion-row> -->
+                        </ion-grid>
+
+                        <!-- CARDS DE INSCRIPCIÓN -->
+                        <my-card-inscription [inscription]="inscription" *ngFor="let inscription of datos_inscripciones" (click)="irDetalleElectivo(inscription)"></my-card-inscription>
+                  </ul>
+
+                  <div style="position: fixed; bottom: 0; height: 80px; width: 100%"></div>
+
+                  <!-- <button ion-button [disabled]="solicitud.length == 0" (click)="inscribir()">
+                  Salvar
+              </button> -->
+
+
+
+            </div>
+            <div style="width: 100%">
+                  <button block class="btn-react small" (click)="inscribir()" [@animateButtonCircle]='status_button'
+                        [disabled]="solicitud.length == 0">
+                        {{status_label == 'circle' ? '' : 'INSCRIBIR'}}
+                        <ion-spinner *ngIf="status_button == 'circle'" name="crescent"></ion-spinner>
+                  </button>
+            </div>
+
+
+
+      </ng-template>
+
+</ion-content>

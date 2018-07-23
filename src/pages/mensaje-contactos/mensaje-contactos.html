@@ -1,0 +1,21 @@
+<ion-content [style.background-color]="color">
+
+   <h3 class="header">ASIGNATURAS</h3>
+
+   <div padding class="contactos">
+      <ul class="lista-uta" *ngFor="let asignatura_key of datos_asignaturas | keys">
+         <li class="item-asignatura" tappable (click)="seleccionarContacto(asignatura_key)">
+            <div class="info">
+               <span class="tipo">{{datos_asignaturas[asignatura_key].tipo_clase | tipoClase}}</span>
+               <h3 class="nombre">{{datos_asignaturas[asignatura_key].nombre}}</h3>
+               <div class="extra padding2" *ngIf="asignatura_key == contacto_seleccionado">
+                  <ion-icon class="seleccionado" item-right name="checkmark-circle" color="primary"></ion-icon>
+               </div>
+            </div>
+         </li>
+      </ul>
+
+   </div>
+   <!-- <button ion-button full color="offline" class="footer-button" (click)="salir()">CERRAR</button> -->
+   <h3 tappable (click)="salir()" class="footer">CERRAR</h3>
+</ion-content>

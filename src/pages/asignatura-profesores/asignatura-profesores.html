@@ -1,0 +1,50 @@
+<ion-header class="no-border">
+   <ion-navbar color="primary">
+      <ion-title>Profesores</ion-title>
+   </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <div class="header-bar">
+      <h2>{{datos_asignatura.NOMBRE}}</h2>
+   </div>
+
+   <ul class="lista-uta">
+
+      <div *ngFor="let tipo_clase of datos_asignatura.TIPOS">
+         <li class="lista-uta__separador blue">{{tipo_clase.TIPO | tipoClase}} - GRUPO {{tipo_clase.GRUPO}}</li>
+
+         <li class="item-profesor" *ngFor="let docente of tipo_clase.DOCENTES">
+            <div class="item-profesor__foto" [ngStyle]="{ 'background-image': 'url(' + foto_url + docente.FOTO + ')' }"></div>
+
+            <ul class="lista-uta__grupo light">
+               <li class="lista-uta__item">
+                  <ion-icon style="font-size: 3rem" name="md-person"></ion-icon>
+                  <div class="info">
+                     <span>Nombre</span>
+                     <h3>{{docente.NOMBRE | capital}}</h3>
+                  </div>
+               </li>
+
+               <li class="lista-uta__item">
+                  <ion-icon style="font-size: 2.57rem" name="md-mail"></ion-icon>
+                  <div class="info">
+                     <span>Correo electrónico</span>
+                     <h3>{{docente.EMAIL}}</h3>
+                  </div>
+               </li>
+
+               <li class="lista-uta__item">
+                  <ion-icon style="font-size: 3rem" name="md-call"></ion-icon>
+                  <div class="info">
+                     <span>Teléfono Anexo</span>
+                     <h3>--</h3>
+                  </div>
+               </li>
+
+            </ul>
+         </li>
+      </div>
+
+   </ul>
+</ion-content>

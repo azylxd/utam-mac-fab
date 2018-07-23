@@ -1,0 +1,39 @@
+/**********************************************************************
+*BARRA HEADER PARA INDICAR ASIGNATURA Y TIPO
+***********************************************************************/
+
+.header-bar {
+    color: white;
+    margin: -1.6rem -1.6rem 3.2rem !important;
+    padding: 1.2rem 1.6rem;
+    background-color: color($colors, _blue_light);
+    h2 {
+        margin: 0;
+        overflow: hidden;
+        font-size: 1.6rem;
+        line-height: 1.45;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+    }
+    span {
+        font-size: 1.4rem;
+    }
+}
+
+/**********************************************************************
+*BARRA HEADER PARA INDICAR SOLO ASIGNATURA
+***********************************************************************/
+
+.header-bar-simple {
+    color: white;
+    margin: -1.6rem -1.6rem 3.2rem !important;
+    padding: 1.3rem 1.6rem 1.1rem; //PADDING CAMBIA
+    background-color: color($colors, _blue_light);
+    font-size: 1.6rem;
+    line-height: 1;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
